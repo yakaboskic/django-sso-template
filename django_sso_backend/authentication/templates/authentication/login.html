@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login with Google</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <!-- Button with an ID for JavaScript to target -->
+    <button id="google-login-btn">Login with Google</button>
+
+    <!-- Inline JavaScript, but you might want to separate this into its own file for production -->
+    <script type="text/javascript">
+        document.getElementById('google-login-btn').addEventListener('click', function() {
+            // Perform any checks or logic here before redirecting
+            console.log("{{ google_login_url }}")
+            // Redirect to Google OAuth URL
+            window.location.href = "{{ google_login_url }}" + "?response_type={{ params.response_type }}&client_id={{ params.client_id }}&redirect_uri={{ params.redirect_uri }}&scope={{ params.scope }}&prompt={{ params.prompt}}&access_type={{ params.access_type }}";
+        });
+    </script>
+</body>
